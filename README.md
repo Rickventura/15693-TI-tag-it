@@ -39,4 +39,4 @@ add the following to /Chameleon-Mini/configuration.c
 
 add the following line to /Chameleon-Mini/Makefile:
 
-SRC         +=  Application/TITagitstandard.c Application/ISO15693-A.c
+SRC         +=  Application/TITagitstandard.c
