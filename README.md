@@ -1,7 +1,9 @@
-# 15693-TI-tag-it
-Chameleon mini rev G Texas Tag-it 
+# 15693-TI-tag-it STANDARD
+Chameleon mini rev G Texas Tag-it STANDARD
 
-besides the two files TITagitstandard.h and TITagitstandard.c,a few additions to the existing firmare files are necessary to include tag-it standard functionality
+Tag-it standard functionality added and tested.
+Two new files, TITagitstandard.h and TITagitstandard.c, were added to the exsisting iso 15693 codec and application files. 
+A few changes to the firmare files are necessary to include tag-it standard functionality as explained below:
 
 add the the following line to file /Chameleon-Mini/Application/application.h: 
 
