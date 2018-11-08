@@ -4,6 +4,7 @@
  *  Created on: 01-03-2017
  *      Author: Phillip Nash
  * modified by rickventura for texas 15693 tag-it STANDARD
+ * write single block added.
  */
 
 
@@ -22,6 +23,9 @@ static enum {
     STATE_SELECTED,
     STATE_QUIET
 } State;
+
+bool CompareUid(uint8_t* Uid1, uint8_t* Uid2);
+void CopyUid(uint8_t* DstUid, uint8_t* SrcUid);
 
 //ISO15693UidType Uid = {0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 0x07, 0xE0};
 //0xE0 = iso15693
@@ -80,7 +84,7 @@ uint16_t TITagitstandardAppProcess(uint8_t* FrameBuf, uint16_t FrameBytes)
                 if (Command == ISO15693_CMD_INVENTORY) {
                     FrameBuf[0] = 0x00; /* Flags */
                     FrameBuf[1] = 0x00; /* DSFID */		    
-                    ISO15693CopyUid(&FrameBuf[2], Uid);
+                    CopyUid(&FrameBuf[2], Uid);
 		    
                     ResponseByteCount = 10;
 		    
@@ -96,7 +100,7 @@ uint16_t TITagitstandardAppProcess(uint8_t* FrameBuf, uint16_t FrameBytes)
                       uint8_t PageAddress ;
      	
 	
-                      if ((FrameBuf[0] & ISO15693_REQ_FLAG_ADDRESS) && ISO15693CompareUid(&FrameBuf[2], Uid) )
+                      if ((FrameBuf[0] & ISO15693_REQ_FLAG_ADDRESS) && CompareUid(&FrameBuf[2], Uid) )
 			  PageAddress = FrameBuf[10]; /*when receiving anaddressed request pick block number from the 10th byte in the request*/
 		      else
 			  PageAddress = FrameBuf[2];
@@ -124,7 +128,7 @@ uint16_t TITagitstandardAppProcess(uint8_t* FrameBuf, uint16_t FrameBytes)
 		     uint8_t PageAddress ;
 	
 			
-                      if ((FrameBuf[0] & ISO15693_REQ_FLAG_ADDRESS) && ISO15693CompareUid(&FrameBuf[2], Uid) ){			 
+                      if ((FrameBuf[0] & ISO15693_REQ_FLAG_ADDRESS) && CompareUid(&FrameBuf[2], Uid) ){			 
 			  PageAddress =  FrameBuf[10]; /*when receiving anaddressed request pick block number from 10th byte in the request*/
 			  Dataptr     = &FrameBuf[11];
 		      }	
@@ -174,6 +178,35 @@ uint16_t TITagitstandardAppProcess(uint8_t* FrameBuf, uint16_t FrameBytes)
         return ISO15693_APP_NO_RESPONSE;
     }
     
+}
+
+bool CompareUid(uint8_t* Uid1, uint8_t* Uid2)
+{
+ int j;
+ uint8_t *p1 , *p2;
+
+    p1 = Uid1;
+    p2 = Uid2;
+
+    for ( j = 0 ; j < 8 ; j++){
+	if (*p1++ != *p2++) return false  ;
+    }
+
+    return true;	
+}
+
+
+void CopyUid(uint8_t* DstUid, uint8_t* SrcUid)
+{
+
+ int j;
+ uint8_t *pd , *ps;
+
+    pd = DstUid;
+    ps = SrcUid;
+
+    for ( j = 0 ; j < 8 ; j++)
+	*pd++ = *ps++;
 }
 
 void TITagitstandardGetUid(ConfigurationUidType Uid)
