@@ -2,8 +2,8 @@
 Chameleon mini rev G Texas Tag-it STANDARD
 
 Tag-it standard functionality added and tested. Writing single block was also implemented and successfully tested.  
-Two new files, TITagitstandard.h and TITagitstandard.c, were added to the exsisting iso 15693 codec and application files. 
-A few changes to the firmare files are necessary to include tag-it standard functionality as explained below:
+Two new files, TITagitstandard.h and TITagitstandard.c, were added to the exsisting iso 15693 application files. 
+A few changes to the firmare files are necessary to include Texas Instruments "tag-it standard" functionality as explained below:
 
 add the the following line to file /Chameleon-Mini/Application/application.h: 
 
