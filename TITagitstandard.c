@@ -1,9 +1,9 @@
 /*
  * TITagitstandard.c
  *
- *  Created on: 01-03-2017
- *      Author: Phillip Nash
- * modified by rickventura for texas 15693 tag-it STANDARD
+ *  
+ * Created on: Oct-01-2018
+ * by rickventura for Texas Instruments 15693 tag-it STANDARD
  */
 
 
