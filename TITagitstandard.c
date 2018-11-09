@@ -1,9 +1,9 @@
 /*
  * TITagitstandard.c
  *
- *  Created on: 01-03-2017
- *      Author: Phillip Nash
- * modified by rickventura for texas 15693 tag-it STANDARD
+ *  Created on: Oct-01-2018
+ *      Author: Rickventura
+ * for Texas Instruments 15693 tag-it STANDARD
  * write single block added.
  * Functions CopyUid, CompareUid included in this file to encapsulate Tag-it features.
  */
