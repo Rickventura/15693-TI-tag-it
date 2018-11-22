@@ -31,7 +31,7 @@ void funct1(char *caller);
 void funct2(char *caller);
 void funct3(char *caller);
 void funct4(char *caller);
-void endOfArr(char *caller);// endOfArr is a dummy function used to signal end of an array of functions
+void endOfArr(char *caller);// endOfArr is a dummy function used to signal the end of an array of functions
 
 
 PTR_TO_FUNC setof_functions[] = {funct1,funct2,funct3}; 
