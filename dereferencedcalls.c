@@ -144,7 +144,7 @@ void example4(ARR_FUNC arr)
  int i ; 
  long unsigned maxi;
   printf("\n----------------------------------------------------------------------------------------\n");                                    
-  printf("\narray of functions passed as parameter,   use of indexed arrays of pointers to functions\n");
+  printf("\narray of functions passed as parameter, use of indexed arrays of pointers to functions\n");
   printf("\n----------------------------------------------------------------------------------------\n");                                    
                                     
   maxi = sizeof(functions_arr)/sizeof(*functions_arr);
@@ -162,7 +162,7 @@ void example5(PTR2PTR_2_FUNC arr)
  int i ; 
  long unsigned maxi;
   printf("\n----------------------------------------------------------------------------------------\n");                                    
-  printf("\nanother way of passing an array as ponter to pointers to functions\n");
+  printf("\nanother way of passing an array of functions as poniter to pointers to functions\n");
   printf("\n----------------------------------------------------------------------------------------\n");                                    
 
   maxi = sizeof(setof_functions)/sizeof(*setof_functions);
